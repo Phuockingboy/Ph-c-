@@ -1,52 +1,68 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <stdlib.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-# Linker output
-*.ilk
-*.map
-*.exp
+int main()
+{
+    float a, b, c; // Khai báo.
 
-# Precompiled Headers
-*.gch
-*.pch
+    printf("\nNhap vao a = ");
+    scanf("%f", &a);
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+    printf("\nNhap vao b = ");
+    scanf("%f", &b);
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+    printf("\nNhap vao c = ");
+    scanf("%f", &c);
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+    if (a == 0) // pt có dang: bx + c = 0
+    {
+        if (b == 0) // pt có dang: c = 0
+        {
+            if (c == 0)
+            {
+                printf("\nPhuong trinh co vo so nghiem");
+            }
+            else
+            {
+                printf("\nPhuong trinh vo nghiem");
+            }
+        }
+        else
+        {
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+            float x = -c / b;
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+            printf("\nPhuong trinh co nghiem duy nhat x = %f", x);
+        }
+    }
+    else
+    {
+        float Denta = b * b - 4 * a * c;
+
+        if (Denta < 0)
+        {
+            printf("\nPhuong trinh vo nghiem");
+        }
+        else if (Denta == 0)
+        {
+            float x = -b / (2 * a);
+
+            printf("\nPhuong trinh co nghiem kep x1 = x2 = %f", x);
+        }
+        else // Denta > 0
+        {
+            float x1 = (-b + sqrt(Denta)) / (2 * a);
+            float x2 = (-b - sqrt(Denta)) / (2 * a);
+
+            printf("\nPhuong trinh co 2 nghiem phan biet:\nx1 = %f\nx2 = %f", x1, x2);
+
+        }
+    }
+
+
+    getch();
+    return 0;
+}
+
